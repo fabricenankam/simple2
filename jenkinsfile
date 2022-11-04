@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                echo 'Hello world!' 
+                 script{
+                withSonarQubeEnv(credentialsId: 'Sonarqube') {
+          sh 'mvn clean install sonar:sonar'
+             }
+                } 
             }
         }
     }
