@@ -4,7 +4,7 @@ pipeline {
         stage('Stage 1') {
             steps {
                  script{
-                withSonarQubeEnv(credentialsId: 'Sonarqube') {
+                withSonarQubeEnv(installationName: 'Sonarqube-8.9.10') {
           sh 'mvn clean install sonar:sonar'
              }
                 } 
